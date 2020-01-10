@@ -35,7 +35,7 @@ if( isset($_POST['b1']) ){
     $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
     $bulk = new MongoDB\Driver\BulkWrite;
-    $obj = array('_id' => addslashes ($_POST['t1']), 'pwd' => addslashes ($_POST['t2']));
+    $obj = array('_id' => addslashes ($_POST['t1']), 'pwd' => hash('sha512', addslashes ($_POST['t2'])));
     $bulk->insert($obj);
     $mng->executeBulkWrite('groupe_f.user', $bulk);
 

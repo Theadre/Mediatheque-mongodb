@@ -31,7 +31,7 @@
   <?php if( isset($_POST['b1']) ){
 
 $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-$filter = array('_id' => addslashes ($_POST['t1']), 'pwd' => addslashes ($_POST['t2']));
+$filter = array('_id' => addslashes ($_POST['t1']), 'pwd' => hash('sha512', addslashes ($_POST['t2'])));
 $query = new MongoDB\Driver\Query($filter);
 
 $rows = $mng->executeQuery('groupe_f.user', $query);
