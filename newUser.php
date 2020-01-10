@@ -10,7 +10,7 @@
     <title>Exercice 2</title>
   </head>
   <body>  
-  <h2><p>Login</p></h2>
+  <h2><p>Création d'un nouvel utilisateur</p></h2>
   <form action="" method="post">
   <table width="300">
     <tbody>
@@ -25,33 +25,22 @@
 
     </tbody>
   </table>
-  <input type="submit" name="b1" id="b1" value="Connexion"><br>
-  <a href="newUser.php">Créer un compte</a>
-
-  <?php if( isset($_POST['b1']) ){
-
-$mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-$filter = array('_id' => addslashes ($_POST['t1']), 'pwd' => addslashes ($_POST['t2']));
-$query = new MongoDB\Driver\Query($filter);
-
-$rows = $mng->executeQuery('groupe_f.user', $query);
+  <input type="submit" name="b1" id="b1" value="Créer">
 
 
-$index = 0;
+  <?php 
+  
+if( isset($_POST['b1']) ){
 
-foreach ($rows as $row) {
-  $index ++;
+    $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+
+    $bulk = new MongoDB\Driver\BulkWrite;
+    $obj = array('_id' => addslashes ($_POST['t1']), 'pwd' => addslashes ($_POST['t2']));
+    $bulk->insert($obj);
+    $mng->executeBulkWrite('groupe_f.user', $bulk);
+
+  print "<script>window.location='index.php';</script>";
 }
-
-if($index != 0){
-  $_SESSION['login'] = addslashes ($_POST['t1']);
-  print "<script>window.location='main.php';</script>";
-}
-else
-{
-  echo "<b><font color = red> Utilisateur ou mot de passe non reconnu </font></b>";
-}
-  }
   ?>
 
   </form>
