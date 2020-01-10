@@ -12,35 +12,8 @@ and open the template in the editor.
 <body>
 <?php
 $mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-
-$collection = $client->groupe_f->fields;
-
-$options = [
-    'allowDiskUse' => TRUE
-];
-
-$pipeline = [
-    [
-        '$group' => [
-            '_id' => [
-                'fields᎐type_de_document' => '$fields.type_de_document'
-            ]
-        ]
-    ],
-    [
-        '$project' => [
-            'fields.type_de_document' => '$_id.fields᎐type_de_document',
-            '_id' => 0
-        ]
-    ]
-];
-
-$cursor = $collection->aggregate($pipeline, $options);
-
-
-
-
-$query = new MongoDB\Driver\Query($cursor);
+$filter = array('fields.type_de_document' => null );
+$query = new MongoDB\Driver\Query($filter);
 
 $rows = $mng->executeQuery('groupe_f.documents', $query);
 

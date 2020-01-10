@@ -24,6 +24,8 @@ $query = new MongoDB\Driver\Query([]);
 
 $rows = $mng->executeQuery("groupe_f.documents", $query);
 
+echo "<form action='' method='post'>";
+
 echo'<b><h1>Les titres des documents</h1></b><br/><br/>';
 
 echo "<table class='table'>";
@@ -55,6 +57,14 @@ echo "<th scope='col'></th>";
 echo "</thead>";
 
 echo "</table>";
+echo "</form>";
+
+if( isset($_POST['b1']) ){
+
+}
+if( isset($_POST['b2']) ){
+}
+
 ?>
 
 

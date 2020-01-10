@@ -17,7 +17,7 @@ $query = new MongoDB\Driver\Query($filter);
 
 $rows = $mng->executeQuery('groupe_f.documents', $query);
 
-echo'Les titres des documents ayant les rangs 1 à 10:<br/>';
+echo'<b>Les titres des documents ayant les rangs 1 à 10</b><br/><br/>';
 
 
 foreach ($rows as $row) {

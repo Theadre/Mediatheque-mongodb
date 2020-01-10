@@ -17,6 +17,8 @@ $query = new MongoDB\Driver\Query([]);
 
 $rows = $mng->executeQuery("groupe_f.documents", $query);
 
+echo'<b>Les titres des documents</b><br/><br/>';
+
 foreach ($rows as $row) {
 
     echo $row->fields->titre_avec_lien_vers_le_catalogue . " (";
