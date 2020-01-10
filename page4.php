@@ -38,6 +38,8 @@ $pipeline = [
 $cursor = $collection->aggregate($pipeline, $options);
 
 
+
+
 $query = new MongoDB\Driver\Query($cursor);
 
 $rows = $mng->executeQuery('groupe_f.documents', $query);
