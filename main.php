@@ -28,12 +28,12 @@ echo'<b><h1>Les titres des documents</h1></b><br/><br/>';
 
 echo "<table class='table'>";
 echo "<thead class='thead-dark'>";
-echo "<th scope='col'>Nom du document</th>";
+echo "<th scope='col'>Titre</th>";
 echo "<th scope='col'>Auteur</th>";
-echo "<th scope='col'>Type de document</th>";
-echo "<th scope='col'></th>";
-
+echo "<th scope='col'>Type</th>";
+echo "<th scope='col'>Action</th>";
 echo "</thead>";
+
 foreach ($rows as $row) {
 	
 	echo "<tr><td>".$row->fields->titre_avec_lien_vers_le_catalogue."</td>";
@@ -41,8 +41,22 @@ foreach ($rows as $row) {
 	if (empty($row->fields->type_de_document)) { echo "<td></td>"; } else { echo "<td>".$row->fields->type_de_document ."</td>";}
   echo "<td><input type='submit' name='b1' id='b1' value='emprunter'></td></tr>";
 }
+
+echo "</table>";
+
+echo'<b><h1>Vos emprunts</h1></b><br/><br/>';
+echo "<table class='table'>";
+echo "<thead class='thead-dark'>";
+echo "<th scope='col'>Titre</th>";
+echo "<th scope='col'>Auteur</th>";
+echo "<th scope='col'>Type</th>";
+echo "<th scope='col'>Action</th>";
+echo "<th scope='col'></th>";
+echo "</thead>";
+
+echo "</table>";
 ?>
-</table>
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
