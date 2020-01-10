@@ -41,7 +41,7 @@ foreach ($rows as $row) {
 	echo "<tr><td>".$row->fields->titre_avec_lien_vers_le_catalogue."</td>";
   if (empty($row->fields->auteur)) { echo "<td></td>"; } else { echo "<td>".$row->fields->auteur. "</td>";}
 	if (empty($row->fields->type_de_document)) { echo "<td></td>"; } else { echo "<td>".$row->fields->type_de_document ."</td>";}
-  echo "<td><input type='submit' name='b1' id='b1' value='emprunter'></td></tr>";
+  echo "<td><a href='main.php?id=" .$row->_id. "'><input type='submit' name='b1' id='b1' value='emprunter'></a></td></tr>";
 }
 
 echo "</table>";
@@ -63,11 +63,10 @@ if( isset($_POST['b1']) ){
 
 }
 if( isset($_POST['b2']) ){
+
 }
 
 ?>
-
-
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
