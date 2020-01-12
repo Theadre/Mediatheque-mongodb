@@ -47,8 +47,7 @@
 
       $obj = array(
         'name' => addslashes ($_POST['t1']), 
-        'pwd' => addslashes ($_POST['t2'])
-        // 'pwd' => hash('sha512', addslashes ($_POST['t2']))
+        'pwd' => hash('sha512', addslashes ($_POST['t2']))
       );
       $db = new MyCollection('users');
       

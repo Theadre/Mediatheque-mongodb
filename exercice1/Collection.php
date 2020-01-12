@@ -2,7 +2,7 @@
 
 class Collection {
     // proprietes
-    private $databaseName = 'groupe_f';
+    private $databaseName = "groupe_f";
 	private $collectionName;
 	private $mongo;
     

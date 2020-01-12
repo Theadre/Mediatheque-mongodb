@@ -15,7 +15,7 @@ class MyCollection
     }
 
     // methode
-    public function query( $filter = [],  $options = ['limit' => 5]): array {
+    public function query( $filter = [],  $options = ['limit' => 10]): array {
 
         $query = new MongoDB\Driver\Query($filter, $options);
       

@@ -13,14 +13,14 @@
 <b>Les différents types de document qui apparaissent dans cette base</b><br/><br/>
 <?php
 
-$manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+$mng = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
 $cmd = new MongoDB\Driver\Command([
     'distinct' => 'documents', // specify the collection name
     'key' => 'fields.type_de_document', // specify the field for which we want to get the distinct values
 ]);
 
-$cursor = $manager->executeCommand('groupe_f', $cmd); // retrieve the results
+$cursor = $mng->executeCommand('groupe_f', $cmd); // retrieve the results
 
 $rows = current($cursor->toArray())->values; // get the distinct values as an array
 

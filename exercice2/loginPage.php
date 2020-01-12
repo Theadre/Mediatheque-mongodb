@@ -47,8 +47,7 @@
 
     $user = array(
         'name' => addslashes($_POST['t1']),
-        // 'pwd' => hash('sha512', addslashes($_POST['t2'])),
-        'pwd' => addslashes($_POST['t2']),
+        'pwd' => hash('sha512', addslashes($_POST['t2'])),
     );
     
     $rows = $db->query($user);

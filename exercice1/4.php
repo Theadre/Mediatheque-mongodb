@@ -26,9 +26,22 @@ $rows = $collection->find($filter);
 foreach ($rows as $r) {
     $index++;
 
+    echo "info-{$index} : ";
+    
 
-    echo "info-{$index} : {$r->fields->titre_avec_lien_vers_le_catalogue} ";
+    echo $r->_id . " -- ";
+    echo $r->fields->nombre_de_reservations . " -- ";
+    echo $r->fields->rang . " -- ";
+
+    echo $r->fields->titre_avec_lien_vers_le_catalogue . " -- ";
+    
+    if (!isset($r->fields->auteur)) {
+        echo " pas d'auteur -- ";} 
+        else { echo $r->fields->auteur . " -- ";}
+
     if (!isset($r->fields->type_de_document)) {
-        echo " pas de doocument <br>";
+        echo " pas de type -- <br> ";}
+        else { echo $r->fields->type_de_document . " -- <br>";}
+
+
     }
-}
